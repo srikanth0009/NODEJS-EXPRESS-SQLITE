@@ -10,3 +10,4 @@ const db = new sqlite3.Database(`./${config.DB_NAME}`, (err) => {
 });
 
 module.exports = db;
+  

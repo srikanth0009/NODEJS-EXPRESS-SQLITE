@@ -6,7 +6,7 @@ exports.create = (req, res) => {
     if (err) res.status(500).send({ message: err.message });
     else res.send(data);
   });
-};
+}
 
 exports.findAll = (callback) => {
   Tutorial.findAll((err, data) => {

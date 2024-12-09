@@ -9,7 +9,7 @@ db.serialize(() => {
       description TEXT,
       published BOOLEAN DEFAULT false
     )`
-  );
+  );  
 });
 
 // CRUD functions
@@ -26,7 +26,7 @@ const Tutorial = {
     const sql = "SELECT * FROM tutorial";
     db.all(sql, [], (err, rows) => callback(err, rows));
   },
-
+  
   findById: (id, callback) => {
     const sql = "SELECT * FROM tutorial WHERE id = ?";
     db.get(sql, [id], (err, row) => callback(err, row));
@@ -34,7 +34,7 @@ const Tutorial = {
 
   findPublished: (callback) => {
     const sql = "SELECT * FROM tutorial WHERE published = ?";
-    db.get(sql, [1], (err, rows) =>  callback(err, rows));
+    db.all(sql, [1], (err, rows) =>  callback(err, rows));
   },
 
   getMatchedTitles: (title, callback) => {
